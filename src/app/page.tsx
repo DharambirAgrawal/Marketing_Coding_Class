@@ -4,43 +4,46 @@ import { Benefits } from "@/components/Benefits";
 import { Testimonials } from "@/components/Testimonials";
 import { Faq } from "@/components/Faq";
 import { Cta } from "@/components/Cta";
-
+import Form from "@/components/Form";
 import { benefitOne, benefitTwo } from "@/components/data";
+
 export default function Home() {
   return (
     <>
       <Hero />
+      
+      {/* Section Title for Benefits */}
       <SectionTitle
-        preTitle="Nextly Benefits"
-        title=" Why should you use this landing page"
-        >
-        Nextly is a free landing page & marketing website template for startups
-        and indie projects. Its built with Next.js & TailwindCSS. And its
-        completely open-source.
+        preTitle="Learn Coding Benefits"
+        title=" Why should you join our coding classes?"
+      >
+        Our coding classes are designed to provide you with hands-on experience, real-world projects, and the skills you need to start your career in tech. Whether you're a beginner or an experienced coder, we have something for you.
       </SectionTitle>
 
+      {/* Benefits Section */}
       <Benefits data={benefitOne} />
       <Benefits imgPos="right" data={benefitTwo} />
 
-     
+      {/* Testimonials Section */}
       <SectionTitle
-        preTitle="Testimonials"
-        title="Here's what our customers said"
-        >
-        Testimonials is a great way to increase the brand trust and awareness.
-        Use this section to highlight your popular customers.
+        preTitle="What Our Students Say"
+        title="Here's what our students have to say"
+      >
+        Hear from our successful students who made their way into the tech industry with the help of our expert-led coding classes.
       </SectionTitle>
 
       <Testimonials />
 
+      {/* FAQ Section */}
       <SectionTitle preTitle="FAQ" title="Frequently Asked Questions">
-        Answer your customers possible questions here, it will increase the
-        conversion rate as well as support or chat requests.
+        Here are some common questions our students ask. Find answers to help you decide to start your learning journey with us.
       </SectionTitle>
 
       <Faq />
+
+      {/* Call to Action Section */}
       <Cta />
-        </>
- 
+      <Form />
+    </>
   );
 }
