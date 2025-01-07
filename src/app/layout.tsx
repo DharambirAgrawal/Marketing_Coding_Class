@@ -25,7 +25,7 @@ export default function RootLayout({
       <body className={inter.className}>
       
           <Navbar />
-          <div className=" px-10">{children}</div>
+          <div className=" sm:px-10">{children}</div>
           <Footer />
          
         

@@ -9,7 +9,7 @@ export const navigation=[
     },
 ]
 
-export const APP_NAME="Coding Teaching"
+export const APP_NAME="Coding"
 
 export const DEVELOPER={
     name:"Dharambir",

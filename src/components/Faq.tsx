@@ -8,7 +8,7 @@ export const Faq = () => {
     <Container className="!p-0">
       <div className="w-full max-w-2xl p-2 mx-auto rounded-2xl">
         {faqdata.map((item, index) => (
-          <FaqItem key={item.question} item={item} />
+          <FaqItem key={index} item={item} />
         ))}
       </div>
     </Container>
@@ -40,21 +40,38 @@ const FaqItem = ({ item }: { item: { question: string; answer: string } }) => {
 
 const faqdata = [
   {
-    question: "Is this template completely free to use?",
-    answer: "Yes, this template is completely free to use.",
-  },
-  {
-    question: "Can I use it in a commercial project?",
-    answer: "Yes, you can.",
-  },
-  {
-    question: "What is your refund policy?",
+    question: "What programming languages will I learn in this course?",
     answer:
-      "If you're unhappy with your purchase for any reason, email us within 90 days and we'll refund you in full, no questions asked.",
+      "Our course covers the fundamentals of popular programming languages including HTML, CSS, JavaScript, Python, and React. You will also get hands-on experience with real-world projects.",
   },
   {
-    question: "Do you offer technical support?",
+    question: "Is the course suitable for beginners?",
     answer:
-      "No, we don't offer technical support for free downloads. Please purchase a support plan to get 6 months of support.",
+      "Yes! Our course is designed for beginners with no prior coding experience. We start from the very basics and gradually build up to more advanced topics.",
+  },
+  {
+    question: "Can I learn at my own pace?",
+    answer:
+      "Absolutely! Our course is self-paced, allowing you to learn whenever and wherever you want. You’ll have lifetime access to the course materials, so you can revisit the lessons anytime.",
+  },
+  {
+    question: "Do I get a certificate upon completion?",
+    answer:
+      "Yes, you will receive a certificate upon completing the course. This certificate can help boost your resume and demonstrate your new skills to potential employers.",
+  },
+  {
+    question: "Are there any prerequisites for the course?",
+    answer:
+      "There are no prerequisites! Our course is designed for absolute beginners. All you need is a computer and a passion for learning programming.",
+  },
+  {
+    question: "Will I have access to support during the course?",
+    answer:
+      "Yes, you will have access to a community of instructors and fellow learners who can help you throughout the course. We offer support via email and discussion forums for any questions or issues you may have.",
+  },
+  {
+    question: "How long will it take to complete the course?",
+    answer:
+      "The course typically takes 8-12 weeks to complete, depending on how much time you can dedicate each week. Since it’s self-paced, you can go faster or slower based on your schedule.",
   },
 ];

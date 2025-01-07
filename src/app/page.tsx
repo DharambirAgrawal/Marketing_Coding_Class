@@ -1,4 +1,3 @@
-import { Container } from "@/components/Container";
 import { Hero } from "@/components/Hero";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Benefits } from "@/components/Benefits";
@@ -9,12 +8,12 @@ import { Cta } from "@/components/Cta";
 import { benefitOne, benefitTwo } from "@/components/data";
 export default function Home() {
   return (
-    <Container>
+    <>
       <Hero />
       <SectionTitle
         preTitle="Nextly Benefits"
         title=" Why should you use this landing page"
-      >
+        >
         Nextly is a free landing page & marketing website template for startups
         and indie projects. Its built with Next.js & TailwindCSS. And its
         completely open-source.
@@ -27,7 +26,7 @@ export default function Home() {
       <SectionTitle
         preTitle="Testimonials"
         title="Here's what our customers said"
-      >
+        >
         Testimonials is a great way to increase the brand trust and awareness.
         Use this section to highlight your popular customers.
       </SectionTitle>
@@ -41,6 +40,7 @@ export default function Home() {
 
       <Faq />
       <Cta />
-    </Container>
+        </>
+ 
   );
 }

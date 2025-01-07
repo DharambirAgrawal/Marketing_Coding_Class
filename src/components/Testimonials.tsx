@@ -2,77 +2,64 @@ import Image from "next/image";
 import React from "react";
 import { Container } from "@/components/Container";
 
-import userOneImg from "../../public/img/user1.jpg";
-import userTwoImg from "../../public/img/user2.jpg";
-import userThreeImg from "../../public/img/user3.jpg";
+// Define the testimonial data
+const testimonials = [
+  {
+    image: "/img/user1.jpg", // replace with actual path or image URL
+    name: "Jane Doe",
+    title: "Software Engineer at TechCorp",
+    content: "This coding class helped me land my first job in tech. The lessons were clear and the support was fantastic!",
+  },
+  {
+    image: "/img/user2.jpg", // replace with actual path or image URL
+    name: "John Smith",
+    title: "Web Developer at WebSolutions",
+    content: "The instructors were top-notch, and the hands-on projects made learning enjoyable and practical.",
+  },
+  {
+    image: "/img/user3.jpg", // replace with actual path or image URL
+    name: "Alice Johnson",
+    title: "Front-end Developer at CodeFactory",
+    content: "I’ve completed multiple coding courses, but this one stands out for its structured curriculum and expert guidance.",
+  },
+];
 
 export const Testimonials = () => {
   return (
     <Container>
       <div className="grid gap-10 lg:grid-cols-2 xl:grid-cols-3">
-        <div className="lg:col-span-2 xl:col-auto">
-          <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
-            <p className="text-2xl leading-normal ">
-              Share a real <Mark>testimonial</Mark>
-              that hits some of your benefits from one of your popular customer.
-            </p>
-
+        {testimonials.map((testimonial, index) => (
+          <div key={index} className="bg-gray-100 px-8 py-10 rounded-2xl dark:bg-trueGray-800 flex flex-col justify-between">
+            <p className="text-2xl leading-normal mb-8">{testimonial.content}</p>
             <Avatar
-              image={userOneImg}
-              name="Sarah Steiner"
-              title="VP Sales at Google"
+              image={testimonial.image}
+              name={testimonial.name}
+              title={testimonial.title}
             />
           </div>
-        </div>
-        <div className="">
-          <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
-            <p className="text-2xl leading-normal ">
-              Make sure you only pick the <Mark>right sentence</Mark>
-              to keep it short and simple.
-            </p>
-
-            <Avatar
-              image={userTwoImg}
-              name="Dylan Ambrose"
-              title="Lead marketer at Netflix"
-            />
-          </div>
-        </div>
-        <div className="">
-          <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
-            <p className="text-2xl leading-normal ">
-              This is an <Mark>awesome</Mark> landing page template I&apos;ve
-              seen. I would use this for anything.
-            </p>
-
-            <Avatar
-              image={userThreeImg}
-              name="Gabrielle Winn"
-              title="Co-founder of Acme Inc"
-            />
-          </div>
-        </div>
+        ))}
       </div>
     </Container>
   );
 };
 
 interface AvatarProps {
-  image: any;
+  image: string;
   name: string;
   title: string;
 }
 
-function Avatar(props: Readonly<AvatarProps>) {
+function Avatar(props: AvatarProps) {
   return (
-    <div className="flex items-center mt-8 space-x-3">
-      <div className="flex-shrink-0 overflow-hidden rounded-full w-14 h-14">
+    <div className="flex items-center space-x-3 mt-8">
+      <div className="flex-shrink-0 w-14 h-14 rounded-full overflow-hidden">
         <Image
           src={props.image}
-          width="40"
-          height="40"
+          width={56}
+          height={56}
           alt="Avatar"
-          placeholder="blur"
+        
+          className="object-cover"
         />
       </div>
       <div>
@@ -83,13 +70,3 @@ function Avatar(props: Readonly<AvatarProps>) {
   );
 }
 
-function Mark(props: { readonly children: React.ReactNode }) {
-  return (
-    <>
-      {" "}
-      <mark className="text-indigo-800 bg-indigo-100 rounded-md ring-indigo-100 ring-4 dark:ring-indigo-900 dark:bg-indigo-900 dark:text-indigo-200">
-        {props.children}
-      </mark>{" "}
-    </>
-  );
-}
