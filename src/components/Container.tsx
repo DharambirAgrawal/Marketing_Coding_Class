@@ -1,18 +1,16 @@
 import React from "react";
 
-interface ContainerProps {
+interface ContainerProps extends React.HTMLProps<HTMLDivElement> {
   children: React.ReactNode;
-  className?: string;
 }
 
 export function Container(props: Readonly<ContainerProps>) {
   return (
     <div
-      className={`container p-8 mx-auto xl:px-0 ${
-        props.className ? props.className : ""
-      }`}>
+      {...props} // Spread all props, including id, className, etc.
+      className={`container p-8 mx-auto xl:px-0 ${props.className ? props.className : ""}`} // Handle className
+    >
       {props.children}
     </div>
   );
 }
-
