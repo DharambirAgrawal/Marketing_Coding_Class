@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "@/components/Container";
 import { CheckIcon } from "@heroicons/react/24/solid";  // Optional: Adding icon to highlight benefits
-
+import Link from "next/link";
 export const Cta = () => {
   return (
     <Container>
@@ -19,12 +19,12 @@ export const Cta = () => {
 
         {/* Right Section: Call-to-Action Button */}
         <div className="mt-4 lg:mt-0">
-          <a
-            href="/signup" // Link to your sign-up page
+          <Link
+            href="#Form" // Link to your sign-up page
             className="flex items-center justify-center w-full lg:w-auto bg-white text-indigo-600 hover:bg-indigo-200 hover:text-indigo-800 rounded-lg py-3 px-8 text-lg font-semibold transition-all duration-300 shadow-md"
           >
             Start Learning Today
-          </a>
+          </Link>
         </div>
       </div>
 

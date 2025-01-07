@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { APP_NAME,ABOUT } from "./data";
 
 
 const OGimages = [
@@ -32,7 +33,6 @@ const baseMetadata: Partial<Metadata> = {
       telephone: false,
     },
     authors: [
-      { name: 'Seb' },
       { name: 'Dharambir Agrawal', url: process.env.APP_URL + '' },
     ],
     creator: 'Dharambir Agrawal',

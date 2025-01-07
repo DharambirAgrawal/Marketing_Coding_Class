@@ -78,7 +78,7 @@ function Form() {
     setPending(true);
 
     if (validateForm()) {
-      console.log("Form submitted successfully:", formData);
+     
       // Call sendFormData function
       const res= await sendFormData(formData);
 
@@ -87,6 +87,7 @@ function Form() {
           type: "success",
           message: "Form submitted successfully!",
         })
+        
       }
       else{
         setMessage({
@@ -104,6 +105,13 @@ function Form() {
       
 
     }
+    setTimeout(() => {
+      setMessage({
+        type: "",
+        message: "",
+      });
+    }
+    , 5000);
     setPending(false);
 
   };
@@ -198,11 +206,13 @@ function Form() {
             required
           >
             <option value="">--Select a Class--</option>
-            <option value="Yoga">Yoga</option>
-            <option value="Dance">Dance</option>
-            <option value="Cooking">Cooking</option>
-            <option value="Art">Art</option>
-            <option value="Music">Music</option>
+            <option value="Python">Python</option>
+            <option value="JavaScript">Javascript</option>
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+            <option value="Web Development">Web Development</option>
+            <option value="Programming">Programming</option>
+
           </select>
           {errors.className && (
             <p className="text-red-500 text-sm mt-1">{errors.className}</p>
