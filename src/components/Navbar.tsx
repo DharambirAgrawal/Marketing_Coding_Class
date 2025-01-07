@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { APP_NAME } from "@/lib/data";
 
 export const Navbar = () => {
   const navigation = [
@@ -26,7 +27,7 @@ export const Navbar = () => {
                 className="w-8"
               />
             </span>
-            <span>Nextly</span>
+            <span>{APP_NAME}</span>
           </span>
         </Link>
 
