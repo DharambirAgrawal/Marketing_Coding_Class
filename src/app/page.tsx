@@ -17,7 +17,7 @@ export default function Home() {
         preTitle="Learn Coding Benefits"
         title=" Why should you join our coding classes?"
       >
-        Our coding classes are designed to provide you with hands-on experience, real-world projects, and the skills you need to start your career in tech. Whether you're a beginner or an experienced coder, we have something for you.
+        Our coding classes are designed to provide you with hands-on experience, real-world projects, and the skills you need to start your career in tech. Whether you&apos;re a beginner or an experienced coder, we have something for you.
       </SectionTitle>
 
       {/* Benefits Section */}
@@ -27,7 +27,7 @@ export default function Home() {
       {/* Testimonials Section */}
       <SectionTitle
         preTitle="What Our Students Say"
-        title="Here's what our students have to say"
+        title="Here&apos;s what our students have to say"
       >
         Hear from our successful students who made their way into the tech industry with the help of our expert-led coding classes.
       </SectionTitle>

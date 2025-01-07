@@ -83,7 +83,7 @@ function Form() {
   };
 
   return (
-    <div className="form-container" style={{ maxWidth: "600px", margin: "0 auto", padding: "20px", background: "#f9f9f9", borderRadius: "8px" }}>
+    <div className="form-container  scroll-my-10" style={{ maxWidth: "600px", margin: "0 auto", padding: "20px", background: "#f9f9f9", borderRadius: "8px" }} id="Form">
       <h2 className="text-center text-2xl font-semibold mb-4">Join Our Class</h2>
       <form onSubmit={handleSubmit}>
         {/* Name */}

@@ -38,7 +38,7 @@ export const Navbar = () => {
         {/* Get Started Button */}
         <div className="hidden lg:flex">
           <Link
-            href="#"
+            href="#Form"
             className="px-6 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700 transition duration-300"
           >
             Get Started
@@ -79,7 +79,7 @@ export const Navbar = () => {
             </Link>
           ))}
           <Link
-            href="#"
+            href="#Form"
             className="block py-2 text-center text-white bg-indigo-600 rounded-md mt-4 hover:bg-indigo-700 transition duration-300"
             onClick={toggleMenu}
           >
