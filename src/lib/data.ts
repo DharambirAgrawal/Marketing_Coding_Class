@@ -30,7 +30,7 @@ export const DEVELOPER = {
 export const ABOUT = `${APP_NAME} is a premier coding academy designed to empower students with essential programming skills during the summer holidays. Our expert-led classes offer hands-on learning experiences in a variety of coding languages, helping students kick-start their journey into the tech industry with confidence.`;
 
 export const AUTHOR_EMAIL="agarwaldhrambir@gmail.com"
-export const AUTHOR_EMAIL2="agarwaldhrambir@gmail.com"
+export const AUTHOR_EMAIL2="rupadh2@hotmail.com"
 export const CATEGORIES=[
   'Python','JavaScript','Java','C++','C#','Ruby','PHP','Swift','Kotlin','Rust','Go','TypeScript','HTML','CSS','SQL','R','Shell','PowerShell','Objective-C','Scala','Perl','Lua','Groovy','Dart','Haskell','Elixir','Clojure','F#','Racket','Scheme','Erlang','Julia','VHDL','Verilog','Ada','Lisp','Prolog','COBOL','Fortran','Assembly','Pascal','Smalltalk','Logo','Forth','APL','BASIC','PL/I','Ada','Modula-2','Oberon','Simula','Eiffel','ML','SML','OCaml','Haxe','ActionScript','ABAP','Apex','AutoLISP','Awk','Bash','Batch','C Shell','CFML','ColdFusion','Common Lisp','Crystal','D','Erlang','F#','Forth','Fortran','Hack','Haskell','J','Kotlin','Lisp','Lua','Nim','Objective-C','OCaml','Perl','PHP','PowerShell','Prolog','PureScript','Python','R','Ruby','Rust','Scala','Scheme','Shell','Smalltalk','SQL','Swift','Tcl','TypeScript','VHDL','Verilog','Visual Basic','WebAssembly'
 ]
