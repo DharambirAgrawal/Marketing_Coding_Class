@@ -12,6 +12,14 @@ export async function sendFormData(formData:any){
           <p><strong>Class Selected:</strong> ${formData.className}</p>
         `,
       };
-    sendEmail('agarwaldharambir@gmail.com',message)
- 
+ const res=   await sendEmail('agarwaldharambir@gmail.com',message)
+ if(res.success){
+     return res
+ }
+    else{
+        return {
+            success:false,
+            message:"Error sending email"
+        }
+    }
 } 

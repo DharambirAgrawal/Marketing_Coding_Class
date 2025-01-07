@@ -22,7 +22,10 @@ const configNodeMailer = {
 const transporter: Transporter = nodemailer.createTransport(configNodeMailer);
 
 // Function to send email
-export const sendEmail = async (TO: string, message: EmailMessage): Promise<void> => {
+export const sendEmail = async (TO: string, message: EmailMessage): Promise<{
+  success: boolean;
+  message: string;
+}> => {
   try {
    
     const mailOptions = {
@@ -34,9 +37,16 @@ export const sendEmail = async (TO: string, message: EmailMessage): Promise<void
 
     // Send email
     const info = await transporter.sendMail(mailOptions);
+
     console.log("Email sent: " + info.response);
+    return {
+      success: true,
+      message: "Email sent successfully",
+    }
   } catch (error) {
-    console.error("Error sending email: ", error); // Improved error handling
-    throw new Error("Failed to send email"); // Throw a new error to handle in the calling function
+    return {
+      success: false,
+      message: "Error sending email"
+    }
   }
 };

@@ -73,14 +73,27 @@ function Form() {
     return valid;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault();
     setPending(true);
 
     if (validateForm()) {
       console.log("Form submitted successfully:", formData);
       // Call sendFormData function
-      sendFormData(formData);
+      const res= await sendFormData(formData);
+
+      if(res.success){
+        setMessage({
+          type: "success",
+          message: "Form submitted successfully!",
+        })
+      }
+      else{
+        setMessage({
+          type: "error",
+          message: "Error submitting form",
+        })
+      }
       // Reset form data
       setFormData({
         name: "",
@@ -88,10 +101,7 @@ function Form() {
         phone: "",
         className: "",
       });
-      setMessage({
-        type: "success",
-        message: "Form submitted successfully!",
-      })
+      
 
     }
     setPending(false);
