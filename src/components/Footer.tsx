@@ -2,39 +2,35 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import { Container } from "@/components/Container";
-import { APP_NAME,DEVELOPER } from "@/lib/data";
+import { APP_NAME, DEVELOPER,ABOUT,navigation } from "@/lib/data"; // Ensure you replace these values in your data file
+
+// Assuming you update the data in your `data.ts` or `data.js` file:
+
 export function Footer() {
-  const navigation = ["Product", "Features", "Pricing", "Company", "Blog"];
-  
   return (
     <div className="relative">
       <Container className="">
         <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 dark:border-trueGray-700 lg:grid-cols-4 sm:px-10">
           <div className="lg:col-span-2">
             <div>
-              {" "}
               <Link
                 href="/"
                 className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100"
               >
                 <Image
                   src="/img/logo.svg"
-                  alt="N"
+                  alt="YourStartup Logo"
                   width="32"
                   height="32"
                   className="w-8"
                 />
-                <span>Nextly</span>
+                <span>{APP_NAME}</span>
               </Link>
             </div>
 
             <div className="max-w-md mt-4 text-gray-500 dark:text-gray-400">
-              Nextly is a free landing page & marketing website template for
-              startups and indie projects. Its built with Next.js & TailwindCSS.
-              And its completely open-source.
+              {ABOUT}
             </div>
-
-          
           </div>
 
           <div>
@@ -42,56 +38,32 @@ export function Footer() {
               {navigation.map((item, index) => (
                 <Link
                   key={index}
-                  href="/"
+                  href={item.link}
                   className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700"
                 >
-                  {item}
+                  {item.name}
                 </Link>
               ))}
             </div>
           </div>
-          {/* <div>
-            <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
-              {legal.map((item, index) => (
-                <Link
-                  key={index}
-                  href="/"
-                  className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700"
-                >
-                  {item}
-                </Link>
-              ))}
-            </div>
-          </div> */}
+
           <div className="">
             <div>Follow us</div>
             <div className="flex mt-5 space-x-5 text-gray-400 dark:text-gray-500">
-              <a
-                href="/"
-                target="_blank"
-                rel="noopener"
-              >
+              <a href="/" target="_blank" rel="noopener">
                 <span className="sr-only">Twitter</span>
                 <Twitter />
               </a>
-              <a
-                href="/"
-                target="_blank"
-                rel="noopener"
-              >
+              <a href="/" target="_blank" rel="noopener">
                 <span className="sr-only">Facebook</span>
                 <Facebook />
               </a>
-              <a
-                href="/"
-                target="_blank"
-                rel="noopener"
-              >
+              <a href="/" target="_blank" rel="noopener">
                 <span className="sr-only">Instagram</span>
                 <Instagram />
               </a>
-              <a href="https://linkedin.com/" target="_blank" rel="noopener">
-                <span className="sr-only">Linkedin</span>
+              <a href="https://linkedin.com" target="_blank" rel="noopener">
+                <span className="sr-only">LinkedIn</span>
                 <Linkedin />
               </a>
             </div>
@@ -99,15 +71,12 @@ export function Footer() {
         </div>
 
         <div className="my-10 text-sm text-center text-gray-600 dark:text-gray-400">
-          Copyright © {new Date().getFullYear()}  {APP_NAME}. Made with ♥ by{" "}
+          Copyright © {new Date().getFullYear()} {APP_NAME}. Made with ♥ by{" "}
           <a href={DEVELOPER.link} target="_blank" rel="noopener">
-           {DEVELOPER.name}
-          </a>{" "}
-         
+            {DEVELOPER.name}
+          </a>
         </div>
       </Container>
-      
-     
     </div>
   );
 }

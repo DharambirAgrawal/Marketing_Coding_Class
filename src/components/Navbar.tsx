@@ -1,11 +1,11 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { APP_NAME } from "@/lib/data";
+import { APP_NAME,navigation } from "@/lib/data";
 import { useState } from "react";
 
+
 export const Navbar = () => {
-  const navigation = ["Product", "Features", "Pricing", "Company", "Blog"];
   
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -27,10 +27,10 @@ export const Navbar = () => {
           {navigation.map((item, index) => (
             <Link
               key={index}
-              href="#"
+              href={item.link}
               className="text-lg text-gray-800 dark:text-gray-200 hover:text-indigo-600 transition duration-300"
             >
-              {item}
+              {item.name}
             </Link>
           ))}
         </div>
@@ -71,11 +71,11 @@ export const Navbar = () => {
           {navigation.map((item, index) => (
             <Link
               key={index}
-              href="#"
+              href={item.link}
               className="block py-2 text-gray-800 dark:text-gray-200 hover:text-indigo-600 transition duration-300"
               onClick={toggleMenu} // Close the menu on item click
             >
-              {item}
+              {item.name}
             </Link>
           ))}
           <Link
