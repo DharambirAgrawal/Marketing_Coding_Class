@@ -38,7 +38,9 @@ export async function sendFormData(formData: any) {
   };
 
   const res = await sendEmail(AUTHOR_EMAIL, message);
-  if (res.success) {
+  const res2 = await sendEmail(formData.email, message);
+
+  if (res.success || res2.success) {
     return res;
   } else {
     return {
