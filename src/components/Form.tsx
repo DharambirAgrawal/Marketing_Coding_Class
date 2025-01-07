@@ -1,6 +1,6 @@
-'use client'
+"use client";
 import { useState } from "react";
-
+import { sendFormData } from "@/lib/actions";
 function Form() {
   const [formData, setFormData] = useState({
     name: "",
@@ -15,7 +15,7 @@ function Form() {
     phone: "",
     className: "",
   });
-
+  const [pending, setPending] = useState<boolean>(false);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({
@@ -23,6 +23,13 @@ function Form() {
       [name]: value,
     });
   };
+  const [message, setMessage] = useState<{
+    type: "success" | "error" | "";
+    message: string;
+  }>({
+    type: "",
+    message: "",
+  });
 
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -68,9 +75,12 @@ function Form() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setPending(true);
 
     if (validateForm()) {
       console.log("Form submitted successfully:", formData);
+      // Call sendFormData function
+      sendFormData(formData);
       // Reset form data
       setFormData({
         name: "",
@@ -78,17 +88,37 @@ function Form() {
         phone: "",
         className: "",
       });
-      alert("Thank you for submitting your information!");
+      setMessage({
+        type: "success",
+        message: "Form submitted successfully!",
+      })
+
     }
+    setPending(false);
+
   };
 
   return (
-    <div className="form-container  scroll-my-10" style={{ maxWidth: "600px", margin: "0 auto", padding: "20px", background: "#f9f9f9", borderRadius: "8px" }} id="Form">
-      <h2 className="text-center text-2xl font-semibold mb-4">Join Our Class</h2>
+    <div
+      className="form-container  scroll-my-10"
+      style={{
+        maxWidth: "600px",
+        margin: "0 auto",
+        padding: "20px",
+        background: "#f9f9f9",
+        borderRadius: "8px",
+      }}
+      id="Form"
+    >
+      <h2 className="text-center text-2xl font-semibold mb-4">
+        Join Our Class
+      </h2>
       <form onSubmit={handleSubmit}>
         {/* Name */}
         <div className="form-group mb-4">
-          <label htmlFor="name" className="block mb-2">Full Name</label>
+          <label htmlFor="name" className="block mb-2">
+            Full Name
+          </label>
           <input
             type="text"
             id="name"
@@ -97,13 +127,18 @@ function Form() {
             onChange={handleChange}
             className="w-full p-3 border border-gray-300 rounded-md"
             placeholder="Enter your full name"
+            required
           />
-          {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+          {errors.name && (
+            <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+          )}
         </div>
 
         {/* Email */}
         <div className="form-group mb-4">
-          <label htmlFor="email" className="block mb-2">Email Address</label>
+          <label htmlFor="email" className="block mb-2">
+            Email Address
+          </label>
           <input
             type="email"
             id="email"
@@ -112,13 +147,18 @@ function Form() {
             onChange={handleChange}
             className="w-full p-3 border border-gray-300 rounded-md"
             placeholder="Enter your email address"
+            required
           />
-          {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+          {errors.email && (
+            <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+          )}
         </div>
 
         {/* Phone */}
         <div className="form-group mb-4">
-          <label htmlFor="phone" className="block mb-2">Phone Number</label>
+          <label htmlFor="phone" className="block mb-2">
+            Phone Number
+          </label>
           <input
             type="text"
             id="phone"
@@ -127,19 +167,25 @@ function Form() {
             onChange={handleChange}
             className="w-full p-3 border border-gray-300 rounded-md"
             placeholder="Enter your phone number"
+            required
           />
-          {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
+          {errors.phone && (
+            <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+          )}
         </div>
 
         {/* Class Selection */}
         <div className="form-group mb-4">
-          <label htmlFor="className" className="block mb-2">Select Class</label>
+          <label htmlFor="className" className="block mb-2">
+            Select Class
+          </label>
           <select
             id="className"
             name="className"
             value={formData.className}
             onChange={handleSelectChange}
             className="w-full p-3 border border-gray-300 rounded-md"
+            required
           >
             <option value="">--Select a Class--</option>
             <option value="Yoga">Yoga</option>
@@ -148,14 +194,29 @@ function Form() {
             <option value="Art">Art</option>
             <option value="Music">Music</option>
           </select>
-          {errors.className && <p className="text-red-500 text-sm mt-1">{errors.className}</p>}
+          {errors.className && (
+            <p className="text-red-500 text-sm mt-1">{errors.className}</p>
+          )}
         </div>
 
         {/* Submit Button */}
         <div className="form-group mb-4">
-          <button type="submit" className="w-full p-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">
-            Submit
+          <button
+            type="submit"
+            className="w-full p-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+            disabled={pending}
+          >
+            {pending ? "Submitting..." : "Submit"}
           </button>
+          <span className="block mt-2 text-center ">
+
+          {message.type === "success" && (
+            <p className="text-green-500 text-lg mt-1">{message.message}</p>
+          )}
+          {message.type === "error" && (
+            <p className="text-red-500 text-lg mt-1">{message.message}</p>
+          )}
+          </span>
         </div>
       </form>
     </div>
