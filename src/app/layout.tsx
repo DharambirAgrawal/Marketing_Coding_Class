@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ThemeProvider } from "next-themes";
+
 import "./globals.css";
 
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { PopupWidget }  from "@/components/PopupWidget";
+
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,12 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class">
+      
           <Navbar />
-          <div>{children}</div>
+          <div className=" px-10">{children}</div>
           <Footer />
-          <PopupWidget />
-        </ThemeProvider>
+         
+        
       </body>
     </html>
   );

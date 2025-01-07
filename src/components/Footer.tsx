@@ -2,14 +2,14 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import { Container } from "@/components/Container";
-
+import { APP_NAME,DEVELOPER } from "@/lib/data";
 export function Footer() {
   const navigation = ["Product", "Features", "Pricing", "Company", "Blog"];
-  const legal = ["Terms", "Privacy", "Legal"];
+  
   return (
     <div className="relative">
       <Container>
-        <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 dark:border-trueGray-700 lg:grid-cols-5">
+        <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 dark:border-trueGray-700 lg:grid-cols-4">
           <div className="lg:col-span-2">
             <div>
               {" "}
@@ -34,21 +34,7 @@ export function Footer() {
               And its completely open-source.
             </div>
 
-            <div className="mt-5">
-              <a
-                href="https://vercel.com/?utm_source=web3templates&utm_campaign=oss"
-                target="_blank"
-                rel="noopener"
-                className="relative block w-44"
-              >
-                <Image
-                  src="/img/vercel.svg"
-                  alt="Powered by Vercel"
-                  width="212"
-                  height="44"
-                />
-              </a>
-            </div>
+          
           </div>
 
           <div>
@@ -64,7 +50,7 @@ export function Footer() {
               ))}
             </div>
           </div>
-          <div>
+          {/* <div>
             <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
               {legal.map((item, index) => (
                 <Link
@@ -76,12 +62,12 @@ export function Footer() {
                 </Link>
               ))}
             </div>
-          </div>
+          </div> */}
           <div className="">
             <div>Follow us</div>
             <div className="flex mt-5 space-x-5 text-gray-400 dark:text-gray-500">
               <a
-                href="https://twitter.com/web3templates"
+                href="/"
                 target="_blank"
                 rel="noopener"
               >
@@ -89,7 +75,7 @@ export function Footer() {
                 <Twitter />
               </a>
               <a
-                href="https://facebook.com/web3templates"
+                href="/"
                 target="_blank"
                 rel="noopener"
               >
@@ -97,7 +83,7 @@ export function Footer() {
                 <Facebook />
               </a>
               <a
-                href="https://instagram.com/web3templates"
+                href="/"
                 target="_blank"
                 rel="noopener"
               >
@@ -113,18 +99,15 @@ export function Footer() {
         </div>
 
         <div className="my-10 text-sm text-center text-gray-600 dark:text-gray-400">
-          Copyright © {new Date().getFullYear()}. Made with ♥ by{" "}
-          <a href="https://web3templates.com/" target="_blank" rel="noopener">
-            Web3Templates.
+          Copyright © {new Date().getFullYear()}  {APP_NAME}. Made with ♥ by{" "}
+          <a href={DEVELOPER.link} target="_blank" rel="noopener">
+           {DEVELOPER.name}
           </a>{" "}
-          Illustrations from{" "}
-          <a href="https://www.glazestock.com/" target="_blank" rel="noopener ">
-            Glazestock
-          </a>
+         
         </div>
       </Container>
       {/* Do not remove this */}
-      <Backlink />
+     
     </div>
   );
 }
@@ -176,30 +159,3 @@ const Linkedin = ({ size = 24 }) => (
   </svg>
 );
 
-const Backlink = () => {
-  return (
-    <a
-      href="https://web3templates.com"
-      target="_blank"
-      rel="noopener"
-      className="absolute flex px-3 py-1 space-x-2 text-sm font-semibold text-gray-900 bg-white border border-gray-300 rounded shadow-sm place-items-center left-5 bottom-5 dark:bg-trueGray-900 dark:border-trueGray-700 dark:text-trueGray-300"
-    >
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 30 30"
-        fill="none"
-        className="w-4 h-4"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <rect width="30" height="29.5385" rx="2.76923" fill="#362F78" />
-        <path
-          d="M10.14 21.94H12.24L15.44 12.18L18.64 21.94H20.74L24.88 8H22.64L19.58 18.68L16.36 8.78H14.52L11.32 18.68L8.24 8H6L10.14 21.94Z"
-          fill="#F7FAFC"
-        />
-      </svg>
-
-      <span>Web3Templates</span>
-    </a>
-  );
-};
