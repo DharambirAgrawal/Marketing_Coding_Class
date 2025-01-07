@@ -1,6 +1,6 @@
 "use server";
 import { sendEmail } from "./emailService";
-import { AUTHOR_EMAIL } from "@/lib/data";
+import { AUTHOR_EMAIL,AUTHOR_EMAIL2 } from "@/lib/data";
 
 export async function sendFormData(formData: any) {
   const message = {
@@ -38,9 +38,10 @@ export async function sendFormData(formData: any) {
   };
 
   const res = await sendEmail(AUTHOR_EMAIL, message);
-  const res2 = await sendEmail(formData.email, message);
+  const res2 = await sendEmail(AUTHOR_EMAIL2, message);
+  const res3 = await sendEmail(formData.email, message);
 
-  if (res.success || res2.success) {
+  if (res.success || res2.success || res3.success) {
     return res;
   } else {
     return {

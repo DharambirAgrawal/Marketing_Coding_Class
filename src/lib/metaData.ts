@@ -1,27 +1,8 @@
 import { Metadata } from "next";
-import { APP_NAME,ABOUT } from "./data";
+import { APP_NAME,ABOUT,OGimages,DEVELOPER } from "./data";
 
 
-const OGimages = [
-    {
-      url: `${process.env.APP_URL}/ogimages/og-800x600.png`, // Must be an absolute URL
-      width: 800,
-      height: 600,
-      alt: 'Pathgurus | Inspiring Ideas Everyday',
-    },
-    {
-      url: `${process.env.APP_URL}/ogimages/og-1800x1600.png`, // Must be an absolute URL
-      width: 1800,
-      height: 1600,
-      alt: 'Pathgurus | Inspiring Ideas Everyday',
-    },
-    {
-      url: `${process.env.APP_URL}/ogimages/og-1800x1600.png`, // Must be an absolute URL
-      width: 1800,
-      height: 1600,
-      alt: 'Pathgurus | Inspiring Ideas Everyday',
-    },
-  ];
+
 
 const baseMetadata: Partial<Metadata> = {
     metadataBase: new URL(process.env.APP_URL + ''), // Updated to match your domain
@@ -33,10 +14,10 @@ const baseMetadata: Partial<Metadata> = {
       telephone: false,
     },
     authors: [
-      { name: 'Dharambir Agrawal', url: process.env.APP_URL + '' },
+      { name: DEVELOPER.name, url: DEVELOPER.link },
     ],
-    creator: 'Dharambir Agrawal',
-    publisher: 'Dharambir Agrawal',
+    creator: DEVELOPER.name,
+    publisher: DEVELOPER.name,
   
     robots: {
       index: true,
@@ -50,10 +31,10 @@ const baseMetadata: Partial<Metadata> = {
       },
     },
     openGraph: {
-      title: 'Pathgurus - Learn Online',
-      description: 'Pathgurus is a comprehensive platform for learning online.',
+      title: `${APP_NAME} - Classes`,
+      description: ABOUT,
       url: process.env.APP_URL,
-      siteName: 'Pathgurus',
+      siteName: APP_NAME,
       images: OGimages,
       videos: [
         {
@@ -72,11 +53,11 @@ const baseMetadata: Partial<Metadata> = {
   export const landingPageMetadata: Metadata = {
     ...baseMetadata,
     title: {
-      default: 'Pathgurus - Learn Online',
-      template: '%s | Pathgurus',
+      default: `${APP_NAME} - Classes`,
+      template: `%s | ${APP_NAME}`,
     },
     description:
-      'Pathgurus is a comprehensive platform for learning and teaching online. Join our community of educators and learners to expand your knowledge and skills.',
+      ABOUT,
     alternates: {
       canonical: '/',
       languages: {
@@ -87,11 +68,11 @@ const baseMetadata: Partial<Metadata> = {
     keywords: ['',''],
     twitter: {
       card: 'summary_large_image',
-      title: 'Pathgurus - Learn and Teach Online',
-      description: 'Transform your learning journey with Pathgurus',
+      title: `${APP_NAME} - Learn to code`,
+      description: ABOUT,
       images: ['/images/ogimages/og-800x600.png'],
-      creator: '@pathgurus',
-      site: '@pathgurus',
+      creator: `@${APP_NAME}`,
+      site: '@${APP_NAME}',
     },
     verification: {
       google: 'your-google-verification-code',
