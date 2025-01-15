@@ -11,7 +11,7 @@
 Nextly is a free landing page & marketing website template for  startups and indie projects. Its built with Next.js & TailwindCSS.
 And its completely open-source.
  
-![image](https://user-images.githubusercontent.com/1884712/121497169-03228680-c990-11eb-975a-e77fddc43de0.png)
+![image](https://github.com/DharambirAgrawal/Marketing_Coding_Class/blob/main/Screenshot_15-1-2025_105553_summercode.netlify.app.jpeg)
 
 ## How to use
 
