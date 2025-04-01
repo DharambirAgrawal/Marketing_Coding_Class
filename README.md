@@ -1,6 +1,6 @@
 <p align="center">
 
- <img src="https://user-images.githubusercontent.com/1884712/132941531-0fdd7acf-47ca-424e-b77f-1fab2e372a37.png" alt="W3T" width="100" height="41"/>
+ <img src="https://github.com/DharambirAgrawal/Marketing_Coding_Class/blob/main/Screenshot_15-1-2025_105553_summercode.netlify.app.jpeg" alt="W3T" width="100" height="41"/>
  </a> 
  <br>
  <br>
@@ -11,7 +11,7 @@
 Nextly is a free landing page & marketing website template for  startups and indie projects. Its built with Next.js & TailwindCSS.
 And its completely open-source.
  
-![image](https://user-images.githubusercontent.com/1884712/121497169-03228680-c990-11eb-975a-e77fddc43de0.png)
+![image](https://github.com/DharambirAgrawal/Marketing_Coding_Class/blob/main/Screenshot_15-1-2025_105553_summercode.netlify.app.jpeg)
 
 ## How to use
 
